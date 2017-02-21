@@ -1,0 +1,7 @@
+server:
+     port: 8888
+
+activemq:
+     url: tcp://172.16.1.50:61616
+     user:
+     password:
