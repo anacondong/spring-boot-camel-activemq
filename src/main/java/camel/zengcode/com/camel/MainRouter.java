@@ -26,30 +26,29 @@ public class MainRouter extends RouteBuilder {
 
         //Producer route
         from("timer://test?period=5000")
-                .process(new Processor() {
-                    @Override
-                    public void process(Exchange exchange) throws Exception {
-                        String message = UUID.randomUUID().toString();
-                        log.info("**********************************");
-                        log.info("Send message '{}' to queue....", message);
-                        producerTemplate.sendBody("activemq://test-queue", message);
-
-                    }
-                });
+        .process(new Processor() {
+        @Override
+         public void process(Exchange exchange) throws Exception {
+            String message = UUID.randomUUID().toString();
+            log.info("**********************************");
+            log.info("Send message '{}' to queue....", message);
+            producerTemplate.sendBody("activemq://test-queue", message);
+         }
+         });
 
         //==========================================================================//
 
         //Consumer queue
         from("activemq://test-queue")
-                .process(new Processor() {
-                    @Override
-                    public void process(Exchange exchange) throws Exception {
+        .process(new Processor() {
+        @Override
+        public void process(Exchange exchange) throws Exception {
 
-                        String message = exchange.getIn().getBody(String.class);
-                        log.info("--------------------------------");
-                        log.info("Receive message '{}' from queue.", message);
-                    }
-                });
+           String message = exchange.getIn().getBody(String.class);
+           log.info("--------------------------------");
+           log.info("Receive message '{}' from queue.", message);
+         }
+        });
 
     }
 }
