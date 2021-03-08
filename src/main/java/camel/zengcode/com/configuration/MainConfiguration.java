@@ -31,8 +31,8 @@ public class MainConfiguration {
                 // your custom configuration goes here
                 ThreadPoolProfile threadPoolProfile = new ThreadPoolProfile();
                 threadPoolProfile.setId(MY_DEFAULT_PROFILE);
-                threadPoolProfile.setPoolSize(10);
-                threadPoolProfile.setMaxPoolSize(15);
+                threadPoolProfile.setPoolSize(20);
+                threadPoolProfile.setMaxPoolSize(40);
                 threadPoolProfile.setMaxQueueSize(250);
                 threadPoolProfile.setKeepAliveTime(25L);
                 threadPoolProfile.setRejectedPolicy(ThreadPoolRejectedPolicy.Abort);

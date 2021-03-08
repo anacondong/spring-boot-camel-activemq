@@ -25,7 +25,7 @@ public class MainRouter extends RouteBuilder {
 
 
         //Producer route
-        from("timer://test?period=5000")
+        from("timer://test?period=1000")
         .process(new Processor() {
         @Override
          public void process(Exchange exchange) throws Exception {

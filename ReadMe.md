@@ -1,0 +1,1 @@
+Start activeMQ: activemq-admin.bat start
